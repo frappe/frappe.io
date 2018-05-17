@@ -32,6 +32,8 @@ Well, with the defined word in `options` of our selected `DocFields`, now is tim
 
 _-At last, we think we would never stop talking!_
 
+
+```
 	frappe.ui.form.ControlData = frappe.ui.form.ControlData.$extend({
 		make_input: function(){
 			var options = this.df.options;
@@ -87,6 +89,7 @@ _-At last, we think we would never stop talking!_
 			}
 		}
 	});
+```
 
 _-Other letter soup, for my gosh!_
 

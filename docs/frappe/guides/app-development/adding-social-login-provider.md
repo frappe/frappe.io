@@ -6,6 +6,8 @@ This guide discusses how to add a social login provider to frappe via pull reque
 
 ```
 providers["Frappe"] = {
+
+```
 	"provider_name": "Frappe",
 	"enable_social_login": 1,
 	"custom_base_url": 1,
@@ -19,6 +21,7 @@ providers["Frappe"] = {
 		"response_type": "code",
 		"scope": "openid"
 	})
+```
 }
 ```
 
@@ -35,7 +38,10 @@ example:
 ```
 @frappe.whitelist(allow_guest=True)
 def login_via_frappe(code, state):
+
+```
 	login_via_oauth2("frappe", code, state, decoder=json.loads)
+```
 ```
 
 #### User Creation via id_token
@@ -45,5 +51,8 @@ example:
 ```
 @frappe.whitelist(allow_guest=True)
 def login_via_office365(code, state):
+
+```
 	login_via_oauth2_id_token("office_365", code, state, decoder=json.loads)
+```
 ```

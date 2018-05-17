@@ -16,6 +16,8 @@ To render a template,
 
 From `erpnext/public/js/templates/address_list.js`
 
+
+```
 	{% raw %}<p><button class="btn btn-sm btn-default btn-address">
 	    <i class="fa fa-plus"></i> New Address</button></p>
 	{% for(var i=0, l=addr_list.length; i<l; i++) { %}
@@ -25,10 +27,16 @@ From `erpnext/public/js/templates/address_list.js`
 	    <h4>{%= addr_list[i].address_type %}</h4>
 	    <div style="padding-left: 15px;">
 	        <div>
+```
         	    {% if(addr_list[i].is_primary_address) { %}<span class="label label-info">
+
+```
 	                {%= __("Primary") %}</span>{% } %}
 	            {% if(addr_list[i].is_shipping_address) { %}<span class="label label-default">
+```
         	        {%= __("Shipping") %}</span>{% } %}
+
+```
 	        </div>
 	        <p style="margin-top: 5px;">{%= addr_list[i].display %}</p>
 	    </div>
@@ -36,6 +44,7 @@ From `erpnext/public/js/templates/address_list.js`
 	{% if(!addr_list.length) { %}
 	<p class="text-muted">{%= __("No address added yet.") %}</p>
 	{% } %}{% endraw %}
+```
 
 
 

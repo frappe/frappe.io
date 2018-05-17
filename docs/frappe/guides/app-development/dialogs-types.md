@@ -4,7 +4,7 @@ Frappe provides a group of standard dialogs that are very useful while coding.
 
 ## Alert Dialog
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/app-development/show-alert.png">
+<img class="screenshot" src="~@frappe_base/assets/img/app-development/show-alert.png">
 
 Alert Dialog is used for showing non-obstructive messages.
 
@@ -15,13 +15,16 @@ It has 2 parameters:
 
 ### Example
 
+
+```
 	show_alert('Hi, do you have a new message', 5);
+```
 
 ---
 
 ## Prompt Dialog
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/app-development/prompt.png">
+<img class="screenshot" src="~@frappe_base/assets/img/app-development/prompt.png">
 
 Prompt Dialog is used for collecting data from users.
 
@@ -34,8 +37,10 @@ It has 4 parameters:
 
 ### Example
 
+
+```
 	frappe.prompt([
-		{'fieldname': 'birth', 'fieldtype': 'Date', 'label': 'Birth Date', 'reqd': 1}  
+		{'fieldname': 'birth', 'fieldtype': 'Date', 'label': 'Birth Date', 'reqd': 1}
 	],
 	function(values){
 		show_alert(values, 5);
@@ -43,11 +48,12 @@ It has 4 parameters:
 	'Age verification',
 	'Subscribe me'
 	)
+```
 
 ---
 ## Confirm Dialog
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/app-development/confirm-dialog.png">
+<img class="screenshot" src="~@frappe_base/assets/img/app-development/confirm-dialog.png">
 
 Confirm Dialog is used to get a confirmation from the user before executing an action.
 
@@ -59,6 +65,8 @@ It has 3 arguments:
 
 ### Example
 
+
+```
 	frappe.confirm(
 		'Are you sure to leave this page?',
 		function(){
@@ -68,12 +76,13 @@ It has 3 arguments:
 			show_alert('Thanks for continue here!')
 		}
 	)
+```
 
 ---
 
 ## Message Print
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/app-development/msgprint.png">
+<img class="screenshot" src="~@frappe_base/assets/img/app-development/msgprint.png">
 
 Message Print is used for showing information to users.
 
@@ -84,24 +93,32 @@ It has 2 arguments:
 
 ### Example
 
+
+```
 	msgprint("<b>Server Status</b>"
 		+ "<hr>"
 		+ "<ul>"
+```
     			+ "<li><b>28%</b> Memory</li>"
     			+ "<li><b>12%</b> Processor</li>"
     			+ "<li><b>0.3%</b> Disk</li>"
+
+```
 		+ "</ul>", 'Server Info')
+```
 
 ---
 
 ### Custom Dialog
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/app-development/dialog.png">
+<img class="screenshot" src="~@frappe_base/assets/img/app-development/dialog.png">
 
 You can extend and build your own custom dialogs using `frappe.ui.Dialog`
 
 ### Example
 
+
+```
 	var d = new frappe.ui.Dialog({
 		'fields': [
 			{'fieldname': 'ht', 'fieldtype': 'HTML'},
@@ -114,6 +131,7 @@ You can extend and build your own custom dialogs using `frappe.ui.Dialog`
 	});
 	d.fields_dict.ht.$wrapper.html('Hello World');
 	d.show();
+```
 
 
 

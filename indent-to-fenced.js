@@ -13,7 +13,7 @@ walk('./docs/frappe', function(filepath, stats) {
 
 function convert(md) {
     return md.replace(/((?:^\t[^\n]*\n)+)/gm, function(match, p1, offset, string) {
-        return "\n```" + match + "```\n";
+        return "\n```\n" + match + "```\n";
     });
 }
 

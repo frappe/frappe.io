@@ -2,6 +2,8 @@
 
 After saving the DocTypes, check that the model `.json` and `.py` files are created in the `apps/library_management/library_management` module. The directory structure after creating the models should look like this:
 
+
+```
 	.
 	├── MANIFEST.in
 	├── README.md
@@ -27,5 +29,6 @@ After saving the DocTypes, check that the model `.json` and `.py` files are crea
 	│   │           ├── __init__.py
 	│   │           ├── library_transaction.json
 	│   │           └── library_transaction.py
+```
 
 {next}

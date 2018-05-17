@@ -6,15 +6,24 @@ From version 7, Frappe uses Python RQ to run background jobs.
 
 To enqueue a job,
 
-	from frappe.jobs.background_jobs import enqueue
 
+```
+	from frappe.jobs.background_jobs import enqueue
+```
+
+
+```
 	def long_job(arg1, arg2):
 		frappe.publish_realtime('msgprint', 'Starting long job...')
 		# this job takes a long time to process
 		frappe.publish_realtime('msgprint', 'Ending long job...')
+```
 
+
+```
 	def enqueue_long_job(arg1, args2):
 		enqueue('myapp.mymodule.long_job', arg1=arg1, arg2=arg2)
+```
 
 This will enqueue to the queue `default`
 
@@ -32,11 +41,14 @@ You can also push certain actions to the background if you anticipate the execut
 
 For example:
 
+
+```
 	def submit(self):
 		if len(self.items) > 100:
 			self.queue_action('submit')
 		else:
 			self._submit()
+```
 
 #### Debugging
 

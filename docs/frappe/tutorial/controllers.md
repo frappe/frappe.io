@@ -17,6 +17,7 @@ You can write methods for these events and they will be called by the framework 
 
 Here is the finished controller:
 
+```
 	from __future__ import unicode_literals
 	import frappe
 	from frappe import _
@@ -39,6 +40,7 @@ Here is the finished controller:
 			else:
 				if not last_transaction or last_transaction[0].transaction_type!="Issue":
 					frappe.throw(_("Cannot return article not issued"))
+```
 
 In this script:
 
@@ -48,7 +50,7 @@ In this script:
 
 Check if your validations work by creating new records
 
-<img class="screenshot" alt="Transaction" src="{{docs_base_url}}/assets/img/lib_trans.png">
+<img class="screenshot" alt="Transaction" src="~@frappe_base/assets/img/lib_trans.png">
 
 #### Debugging
 

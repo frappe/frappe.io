@@ -10,7 +10,7 @@ Since these reports give you unrestricted access via Python scripts, they can on
 
 ### 1. Create a new Report
 
-<img class="screenshot" alt="Script Report" src="{{docs_base_url}}/assets/img/script-report.png">
+<img class="screenshot" alt="Script Report" src="~@frappe_base/assets/img/script-report.png">
 
 1. Set Report Type as "Script Report"
 1. Set "Is Standard" as "Yes"
@@ -23,6 +23,8 @@ Since these reports give you unrestricted access via Python scripts, they can on
 
 You can add filters in the `.js`. See an example below:
 
+
+```
 	frappe.query_reports["Accounts Receivable"] = {
 		"filters": [
 			{
@@ -34,6 +36,7 @@ You can add filters in the `.js`. See an example below:
 			},
 		]
 	}
+```
 
 1. These properties are the same as you would set in a DocField in a DocType
 

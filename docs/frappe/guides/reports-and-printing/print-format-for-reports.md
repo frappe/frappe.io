@@ -8,12 +8,15 @@ To create a new Print Format, just drop in a `.html` file in the folder of the q
 
 ##### Tree Of `erpnext/accounts/general_ledger`
 
+
+```
 	general_ledger/
 	├── __init__.py
 	├── general_ledger.html
 	├── general_ledger.js
 	├── general_ledger.json
 	└── general_ledger.py
+```
 
 
 ### 2. Templating
@@ -24,6 +27,8 @@ For templating, we use an adapted version of [John Resig's microtemplating scrip
 
 Example: Properities:
 
+
+```
 	<div id="<%=id%>" class="<%=(i % 2 == 1 ? " even"="" :="" "")%="">"&gt;
 		<div class="grid_1 alpha right">
 			<img class="righted" src="<%=profile_image_url%>">
@@ -33,12 +38,16 @@ Example: Properities:
 				&lt;%=from_user%&gt;</a>:</b> &lt;%=text%&gt;</div>
 		</div>
 	  </div>
+```
 
 Example: Code structures, Loops
 
+
+```
 	&lt;% for ( var i = 0; i &lt; users.length; i++ ) { %&gt;
 		<li><a href="<%=users[i].url%>">&lt;%=users[i].name%&gt;</a></li>
 	&lt;% } %&gt;
+```
 
 &gt; **Note**: It is important to note that you should not use single quotes (') in your template as the engine cannot handle them effectively.
 
@@ -58,7 +67,7 @@ Here is how the General Ledger Report is built:
 
 Here is what the report looks like:
 
-<img class="screenshot" alt="General Ledger" src="{{docs_base_url}}/assets/img/general-ledger.png">
+<img class="screenshot" alt="General Ledger" src="~@frappe_base/assets/img/general-ledger.png">
 
 ##### Comments:
 

@@ -4,15 +4,24 @@ When you are in application design mode and you want the changes in your DocType
 
 To enable developer mode, update the `site_config.json` file of your site in the sites folder for example:
 
+
+```
 	frappe-bench/sites/site1/site_config.json
+```
 
 Add this to the JSON object
 
+
+```
 	"developer_mode": 1
+```
 
 After setting developer mode, clear the cache:
 
+
+```
 	$ bench clear-cache
+```
 
 To view the full developer options, you must be logged in as the "Administrator" user.
 

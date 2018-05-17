@@ -6,6 +6,8 @@ In this file you will have to write the `get_data` method that will return a dic
 
 ### Example 1: Module Icon
 
+
+```
 	def get_data():
 		return {
 			"Accounts": {
@@ -14,9 +16,12 @@ In this file you will have to write the `get_data` method that will return a dic
 				"type": "module"
 			},
 		}
+```
 
 ### Example 2: List Icon
 
+
+```
 	def get_data():
 		return {
 			"To Do": {
@@ -29,6 +34,7 @@ In this file you will have to write the `get_data` method that will return a dic
 				"type": "list"
 			},
 		}
+```
 
 
 Note: Module views are visible based on permissions.

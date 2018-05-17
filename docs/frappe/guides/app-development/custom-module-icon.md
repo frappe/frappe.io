@@ -6,8 +6,13 @@ This icon is loaded via AJAX first time, then it will be rendered.
 
 Example:
 
-	from frappe import _
 
+```
+	from frappe import _
+```
+
+
+```
 	def get_data():
 		return {
 			"Frappe Apps": {
@@ -17,6 +22,7 @@ Example:
 				"type": "module"
 			}
 		}
+```
 
 > PS: A great place to buy SVG icons for a low cost is the awesome [Noun Project](http://thenounproject.com/)
 

@@ -13,17 +13,23 @@ a whitelisted python function. A function can be whitelisted using the
 
 For example, Add the following to sample\_app/\_\_init\_\_.py
 
+
+```
 	@frappe.whitelist(allow_guest=True)
 	def ping():
 		return 'pong'
+```
 
 <span class="label label-success">GET</span> http://frappe.local:8000**/api/method/sample_app.ping**
 
 _Response:_
 
+
+```
 	{
 	  "message": "pong"
 	}
+```
 
 
 ## 2. REST
@@ -37,14 +43,20 @@ To login, you will have to send a POST request to the login method.
 
 <span class="label label-info">POST</span> http://frappe.local:8000**/api/method/login**
 
+
+```
 	usr=Administrator&pwd=admin
+```
 
 _Response:_
 
+
+```
 	{
 	   "full_name": "Administrator",
 	   "message": "Logged In"
 	}
+```
 
 
 Try to make an authenticated request
@@ -53,9 +65,12 @@ Try to make an authenticated request
 
 _Response:_
 
+
+```
 	{
 	   "message": "Administrator"
 	}
+```
 
 
 ### Listing Documents
@@ -69,6 +84,8 @@ Response is returned as JSON Object and the listing is an array in with the key 
 
 _Response:_
 
+
+```
 	{
 	   "data": [
 		  {
@@ -79,6 +96,7 @@ _Response:_
 		  }
 	   ]
 	}
+```
 
 
 #### Fields
@@ -90,6 +108,8 @@ can pass the fields param to GET request. The param has to be a JSON array.
 
 _Response:_
 
+
+```
 	{
 	   "data": [
 		  {
@@ -102,6 +122,7 @@ _Response:_
 		  }
 	   ]
 	}
+```
 
 
 #### Filters
@@ -115,6 +136,8 @@ Eg, to filter persons with name Jane, pass a param `filters=[["Person", "first_n
 <span class="label label-success">GET</span> http://frappe.local:8000**/api/resource/Person/**
 
 _Response:_
+
+```
 	{
 	   "data": [
 		  {
@@ -122,6 +145,7 @@ _Response:_
 		  }
 	   ]
 	}
+```
 
 
 #### Pagination
@@ -136,6 +160,8 @@ For Example, to request second page, pass `limit_start` as 20.
 
 _Response:_
 
+
+```
 	{
 	   "data": [
 		  {
@@ -144,20 +170,29 @@ _Response:_
 		  {
 			 "name": "Person"
 		  },
+```
 
+
+```
 		  ......
+```
 
+
+```
 		  {
 			 "name": "Website Template"
 		  }
 	   ]
 	}
+```
 
 
 <span class="label label-success">GET</span> http://frappe.local:8000**/api/resource/DocType?limit_start=20**
 
 _Response:_
 
+
+```
 	{
 	   "data": [
 		  {
@@ -169,14 +204,21 @@ _Response:_
 		  {
 			 "name": "Blog Post"
 		  },
+```
 
+
+```
 		  ......
+```
 
+
+```
 		  {
 			 "name": "Custom Field"
 		  }
 	   ]
 	}
+```
 
 
 ### CRUD
@@ -189,10 +231,15 @@ You can create a document by sending a `POST` request to the url, `/api/resource
 
 _Body_:
 
+
+```
 	data={"first_name": "Robert"}
+```
 
 _Response:_
 
+
+```
 	{
 	  "data": {
 		"first_name": "Robert",
@@ -211,6 +258,7 @@ _Response:_
 	  }
 	}
 	
+```
 Note: `POST` requests are to be sent along with `X-Frappe-CSRF-Token:<csrf-token>` header.
 
 #### Read
@@ -223,6 +271,8 @@ For Example,
 
 _Response:_
 
+
+```
 	{
 	  "data": {
 		"first_name": "Jane",
@@ -240,6 +290,7 @@ _Response:_
 		"parentfield": null
 	  }
 	}
+```
 
 ### Update
 
@@ -253,10 +304,15 @@ For Example,
 
 _Body:_
 
+
+```
 	data={"last_name": "Watson"}
+```
 
 _Response:_
 
+
+```
 	{
 	  "data": {
 		"first_name": "John ",
@@ -270,6 +326,7 @@ _Response:_
 		"docstatus": 0
 	  }
 	}
+```
 
 ### Delete
 
@@ -282,4 +339,7 @@ For Example,
 
 _Response:_
 
+
+```
 	{"message":"ok"}
+```

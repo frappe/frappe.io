@@ -4,6 +4,8 @@ In Frappe Framework, you can manage ajax calls via frappe.call. The frappe.call 
 
 ## frappe.call Structure
 
+
+```
 	frappe.call({
 		type: opts.type || "POST",
 		args: args,
@@ -16,6 +18,7 @@ In Frappe Framework, you can manage ajax calls via frappe.call. The frappe.call 
 		async: opts.async,
 		url: opts.url || frappe.request.url,
 	})
+```
 
 #### Parameter description :
 - type: String parameter, http request type "GET", "POST", "PUT", "DELETE". Default set to "POST".
@@ -33,6 +36,8 @@ In Frappe Framework, you can manage ajax calls via frappe.call. The frappe.call 
 ## How to use frappe.call ?
 
 ### Calling standard API
+
+```
 	frappe.call({
 		method: 'frappe.client.get_value',
 		args: {
@@ -53,26 +58,36 @@ In Frappe Framework, you can manage ajax calls via frappe.call. The frappe.call 
 		}
 	});
 	
+```
 - Param description:
+
+```
 	- doctype: name of doctype for which you want to pull information
 	- filters: condition specifier
 	- fieldname: you can specify fields in array that you want back in response
+```
 
 ### Calling whitelisted functions
 - Code client side
 
+
+```
 		frappe.call({
 			method: "frappe.core.doctype.user.user.get_all_roles", //dotted path to server method
 			callback: function(r) {
 				// code snippet
 			}
 		})
+```
 
 - Code at server side
 
+
+```
 		@frappe.whitelist()
 		def get_all_roles():
 			// business logic
 			return value
+```
 
 Note: While accessing any server side method via frappe.call(), you need to whitelist server side method using decorator `@frappe.whitelist`

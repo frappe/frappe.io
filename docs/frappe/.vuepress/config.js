@@ -10,6 +10,12 @@ module.exports = {
     themeConfig: {
         sidebar: [
             {
+                title: 'Introduction',
+                children: [
+                    '/'
+                ]
+            },
+            {
                 title: 'Frappe Tutorial',
                 children: [
                     '/tutorial/before',
@@ -56,5 +62,12 @@ module.exports = {
                 ]
             }
         ]
+    },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '@frappe_base': path.resolve(__dirname, '..')
+            }
+        }
     }
 }

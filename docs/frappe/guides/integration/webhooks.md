@@ -10,7 +10,7 @@ To add Webhook go to
 
 Webhook
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/webhook.png">
+<img class="screenshot" src="~@frappe_base/assets/img/webhook.png">
 
 1. Select the DocType for which hook needs to be triggered e.g. Note
 2. Select the DocEvent for which hook needs to be triggered e.g. on_trash
@@ -27,7 +27,7 @@ e.g. Webhook
   1. **Fieldname** : `name` and **Key** : `id`
   2. **Fieldname** : `items` and **Key** : `lineItems`
 
-Note: if no headers or data is present, request will be made without any header or body  
+Note: if no headers or data is present, request will be made without any header or body
 
 Example response of request sent by frappe server on `Quotation` - `on_update` to https://httpbin.org/post:
 

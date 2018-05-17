@@ -20,7 +20,7 @@ redirect_uri = <redirect uri from OAuth Client>
 
 #### Confirmation Dialog
 
-<img class="screenshot" src="{{docs_base_url}}/assets/img/oauth_confirmation_page.png">
+<img class="screenshot" src="~@frappe_base/assets/img/oauth_confirmation_page.png">
 
 Click 'Allow' to receive authorization code in redirect uri.
 
@@ -50,11 +50,14 @@ client_id = <client ID of app from OAuth Client>
 Response:
 ```
 {
+
+```
 	"access_token": "pNO2DpTMHTcFHYUXwzs74k6idQBmnI",
 	"token_type": "Bearer",
 	"expires_in": 3600,
 	"refresh_token": "cp74cxbbDgaxFuUZ8Usc7egYlhKbH1",
 	"scope": "project"
+```
 }
 ```
 
@@ -74,11 +77,14 @@ client_id = <client ID of app from OAuth Client>
 Response:
 ```
 {
+
+```
 	"access_token": "Ywz1iNk0b21iAmjWAYnFWT4CuudHD5",
 	"token_type": "Bearer",
 	"expires_in": 3600,
 	"refresh_token": "PNux3Q8Citr3s9rl2zEsKuU1l8bSN5",
 	"scope": "project"
+```
 }
 ```
 #### Revoke Token Endpoint

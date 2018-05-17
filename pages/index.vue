@@ -17,7 +17,7 @@
           title="Frappe"
           body="A superhero web framework"
           :badges="['Framework', 'Python', 'JS']"
-          href="/docs"
+          href="/docs/frappe"
         />
         <project-card
           title="Bench"
@@ -43,7 +43,7 @@
           title="Datatable"
           body="A simple, modern and interactive datatable for the web"
           :badges="['Library', 'JS']"
-          href="/datatable"
+          href="/docs/datatable"
         />
       </div>
     </div>

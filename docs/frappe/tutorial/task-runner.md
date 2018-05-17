@@ -4,6 +4,8 @@ Finally, an application also has to send email notifications and do other kind o
 
 To add a new task handler, go to `hooks.py` and add a new handler. Default handlers are `all`, `daily`, `weekly`, `monthly`, `cron`. The `all` handler is called every 4 minutes by default.
 
+
+```
 	# Scheduled Tasks
 	# ---------------
 
@@ -19,26 +21,32 @@ To add a new task handler, go to `hooks.py` and add a new handler. Default handl
 				"library_management.task.every_day_at_18_15"
 			]
 		}
-			
+
 	}
+```
 
 Here we can point to a Python function and that function will be executed every day. Let us look what this function looks like:
 
+
+```
 	# Copyright (c) 2013, Frappe
 	# For license information, please see license.txt
 
 	from __future__ import unicode_literals
 	import frappe
 	from frappe.utils import datediff, nowdate, format_date, add_days
-	
+
 	def every_ten_minutes():
 		# stuff to do every 10 minutes
 		pass
-		
+
 	def every_day_at_18_15():
 		# stuff to do every day at 6:15pm
 		pass
+```
 
+
+```
 	def daily():
 		loan_period = frappe.db.get_value("Library Management Settings",
 			None, "loan_period")
@@ -82,6 +90,7 @@ Here we can point to a Python function and that function will be executed every 
 				overdue_by_member[d.library_member].append(d)
 
 			articles_transacted.append(d.article)
+```
 
 We can place the above code in any accessible Python module. The route is defined in `hooks.py`, so for our purposes we would place this code in `library_management/tasks.py`.
 

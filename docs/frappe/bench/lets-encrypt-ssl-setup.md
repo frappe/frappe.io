@@ -10,9 +10,11 @@
 
 ## Using Bench Command
 
-Just run: 
+Just run:
 
-    sudo -H bench setup lets-encrypt [site-name]
+```
+	sudo -H bench setup lets-encrypt [site-name]
+```
 
 You will be faced with several prompts, respond to them accordingly. This command will also add an entry to the crontab of the user that will attempt to renew the certificate every month.
 
@@ -20,28 +22,36 @@ You will be faced with several prompts, respond to them accordingly. This comman
 
 You can setup Let's Encrypt for [custom domains](adding-custom-domains.html) as well. Just use the `--custom-domain` option
 
-    sudo -H bench setup lets-encrypt [site-name] --custom-domain [custom-domain] 
+```
+	sudo -H bench setup lets-encrypt [site-name] --custom-domain [custom-domain]
+```
 
-### Renew Certificates 
+### Renew Certificates
 
-To renew certificates manually you can use: 
+To renew certificates manually you can use:
 
-    sudo bench renew-lets-encrypt
+```
+	sudo bench renew-lets-encrypt
+```
 
 <hr>
 
 ## Manual Method
-### Download the appropriate Certbot-auto script into /opt 
+### Download the appropriate Certbot-auto script into /opt
 
-    https://certbot.eff.org/
+	https://certbot.eff.org/
 
 ### Stop nginx service
 
-    $ sudo service nginx stop
+```
+	$ sudo service nginx stop
+```
 
 ### Run Certbot
 
-    $ ./opt/certbot-auto certonly --standalone
+```
+	$ ./opt/certbot-auto certonly --standalone
+```
 
 After letsencrypt initializes, you will be prompted for some information. This exact prompts may vary depending on if you've used Let's Encrypt before, but we'll step you through the first time.
 
@@ -73,21 +83,28 @@ These certificates are stored under `/etc/letsencrypt/live/example.com` folder
 
 Go to your erpnext sites site_config.json
 
-    $ cd frappe-bench/sites/{{site_name}}
+```
+	$ cd frappe-bench/sites/{{site_name}}
+```
 
 Add the following two lines to your site_config.json
 
-    "ssl_certificate": "/etc/letsencrypt/live/example.com/fullchain.pem",
-    "ssl_certificate_key": "/etc/letsencrypt/live/example.com/privkey.pem"
-
+```
+	"ssl_certificate": "/etc/letsencrypt/live/example.com/fullchain.pem",
+	"ssl_certificate_key": "/etc/letsencrypt/live/example.com/privkey.pem"
+```
 
 Regenerate the nginx configuration
 
-    $ bench setup nginx
+```
+	$ bench setup nginx
+```
 
 Restart the nginx server
 
-    $ sudo service nginx restart
+```
+	$ sudo service nginx restart
+```
 
 ---
 
@@ -95,7 +112,8 @@ Restart the nginx server
 
 Login as root or a user with superuser privileges, run `crontab -e` and enter:
 
-
-    # renew letsencrypt certificates on 1st monday of every month and get an email if it gets executed
-    MAILTO="mail@example.com"
-    0 0 1-7 * * [ "$(date '+\%a')" = "Mon" ] && sudo service nginx stop && /opt/certbot-auto renew && sudo service nginx start
+```
+	# renew letsencrypt certificates on 1st monday of every month and get an email if it gets executed
+	MAILTO="mail@example.com"
+	0 0 1-7 * * [ "$(date '+\%a')" = "Mon" ] && sudo service nginx stop && /opt/certbot-auto renew && sudo service nginx start
+```

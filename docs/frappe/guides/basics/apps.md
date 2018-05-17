@@ -12,6 +12,8 @@ Frappe ships with a boiler plate for a new app. The command `bench make-app
 app-name` helps you start a new app by starting an interactive shell.
 
 
+
+```
 	% bench new-app sample_app
 	App Name: sample_app
 	App Title: Sample App
@@ -22,9 +24,12 @@ app-name` helps you start a new app by starting an interactive shell.
 	App Email: info@example.com
 	App URL: http://example.com
 	App License: MIT
+```
 
 The above command would create an app with the following directory structure.
 
+
+```
 	sample_app
 	├── license.txt
 	├── MANIFEST.in
@@ -47,6 +52,7 @@ The above command would create an app with the following directory structure.
 	│       │   └── __init__.py
 	│       └── statics
 	└── setup.py
+```
 
 Here, "App Icon" is a font awesome class that you can select from
 [http://fortawesome.github.io/Font-Awesome/icons/](http://fortawesome.github.io/Font-Awesome/icons/).
@@ -63,6 +69,8 @@ scheduling or listening to updates to different documents in the system. For
 now, it just contains the details you entered during app creation.
 
 
+
+```
 	app_name = "sample-app"
 	app_title = "Sample App"
 	app_publisher = "Acme Inc."
@@ -72,6 +80,7 @@ now, it just contains the details you entered during app creation.
 	app_email = "info@example.com"
 	app_url = "http://example.com"
 	app_version = 0.0.1
+```
 
 #### `modules.txt`
 
@@ -81,6 +90,8 @@ attached to a module. By default a module by the name of your app is added.
 Also, each module gets an icon on the [Desk]. For example, the [ERPNext] app is
 organized in the following modules.
 
+
+```
 	accounts
 	buying
 	home
@@ -93,6 +104,7 @@ organized in the following modules.
 	support
 	utilities
 	contacts
+```
 
 ### Adding app to a site
 

@@ -6,6 +6,8 @@ You can override the standard link query by using `set_query`
 
 You can add filters to the query:
 
+
+```
 	frappe.ui.form.on("Bank Reconciliation", "onload", function(frm) {
 		cur_frm.set_query("bank_account", function() {
 			return {
@@ -16,19 +18,26 @@ You can add filters to the query:
 			};
 		});
 	});
+```
 
 A more complex query:
 
+
+```
 	frappe.ui.form.on("Bank Reconciliation", "onload", function(frm){
 		cur_frm.set_query("bank_account", function(){
 			return {
 				"filters": [
 					["Bank Account": "account_type", "=", "Bank"],
+```
                                 ["Bank Account": "group_or_ledger", "!=", "Group"]
+
+```
 				]
 			}
 		});
 	});
+```
 
 ---
 
@@ -36,6 +45,8 @@ A more complex query:
 
 You can also set a server side method to be called on the query:
 
+
+```
 	frm.set_query("item_code", "items", function() {
 		return {
 			query: "erpnext.controllers.queries.item_query",
@@ -43,6 +54,7 @@ You can also set a server side method to be called on the query:
 				{"is_service_item": "Yes"} : {"is_sales_item": "Yes"}
 		};
 	});
+```
 
 
 
@@ -56,6 +68,8 @@ Parameters to the custom method are:
 
 **Example:**
 
+
+```
 	# searches for leads which are not converted
 	def lead_query(doctype, txt, searchfield, start, page_len, filters):
 		return frappe.db.sql("""select name, lead_name, company_name from `tabLead`
@@ -79,6 +93,7 @@ Parameters to the custom method are:
 				'start': start,
 				'page_len': page_len
 			})
+```
 
 
 

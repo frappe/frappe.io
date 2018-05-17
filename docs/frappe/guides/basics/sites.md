@@ -40,6 +40,8 @@ A site is a directory in `sites_dir` which represents a tenant in Frappe Platfor
 
 ### Directory Structure
 
+
+```
 	site
 	├── locks
 	├── private
@@ -48,6 +50,7 @@ A site is a directory in `sites_dir` which represents a tenant in Frappe Platfor
 	│   └── files
 	│		└── testfile.txt
 	└── site_config.json
+```
 
 * `locks` directory is used by the scheduler to synchronize various jobs using
 the [file locking concept](http://en.wikipedia.org/wiki/File_locking).
@@ -57,7 +60,10 @@ Presently, it is limited only to backups.
 
 * `public` directory contains files that can directly served. In the above
  example, `testfile.txt` can be accessed by the URL,
+
+```
 	 http://site/files/testfile.txt
+```
 
 * `site_config.json` contains site specific configuration
 
@@ -74,7 +80,10 @@ While responding to an HTTP request, a site is automatically selected based on,
 
 It is also possible to force the development server to serve a specific site by
 starting it with the following command.
+
+```
 	`bench --site SITENAME serve`
+```
 
 
 ### Adding a new site

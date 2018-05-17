@@ -6,11 +6,17 @@ To do this, add the new custom fields that your app requires, using the Frappe w
 
 In your `hooks.py` file, add `"Custom Fields"`
 
+
+```
 	fixtures = ["Custom Field"]
+```
 
 Export fixtures before you commit your app with:
 
+
+```
 	$ bench --site mysite export-fixtures
+```
 
 This will create a new folder called `fixtures` in your app folder and a `.csv` or `.json` file will be created with the definition of the custom fields you added.
 

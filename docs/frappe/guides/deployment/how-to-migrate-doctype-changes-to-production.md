@@ -10,6 +10,9 @@ When you update in your production using `--latest` or `bench update`, these cha
 
 Permissions do not get updated because the user may have changed them. To update permissions, you can add a new patch in the `patches.txt` of your app.
 
+
+```
 	execute:frappe.permissions.reset_perms("[docype]")
+```
 
 <!-- markdown -->

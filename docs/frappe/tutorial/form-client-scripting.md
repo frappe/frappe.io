@@ -12,6 +12,7 @@ To start the script, in the `library_management/doctype/library_transaction` fol
 
 #### library_transaction.js
 
+```
 	frappe.ui.form.on("Library Transaction", "library_member",
 		function(frm) {
 			frappe.call({
@@ -29,6 +30,7 @@ To start the script, in the `library_management/doctype/library_transaction` fol
 				}
 			})
 		});
+```
 
 1. **frappe.ui.form.on(*doctype*, *fieldname*, *handler*)** is used to bind a handler to the event when the property library_member is set.
 1. In the handler, we trigger an AJAX call to `frappe.client.get`. In response we get the requested object as JSON. [Learn more about the API](/frappe/user/en/guides/integration/rest_api).

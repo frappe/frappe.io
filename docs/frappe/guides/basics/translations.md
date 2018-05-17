@@ -66,7 +66,10 @@ If you want to add a new language it is similar to adding new translations. You 
 
 **Step 1: Export to a file**
 
+
+```
 	$ bench get-untranslated [lang] [path]
+```
 
 **Step 2: Translate**
 
@@ -74,7 +77,10 @@ Create another file with updated translations (in the same order as the source f
 
 **Step 3: Import your translations**
 
+
+```
 	$ bench update-translations [lang] [source path] [translated path]
+```
 
 **Step 4: Update `languages.txt`**
 

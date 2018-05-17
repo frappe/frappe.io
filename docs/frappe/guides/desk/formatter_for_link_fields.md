@@ -4,6 +4,8 @@ In case where a code and a name is maintained for an entity, (for example for Em
 
 #### Example:
 
+
+```
 	frappe.form.link_formatters['Employee'] = function(value, doc) {
 		if(doc.employee_name && doc.employee_name !== value) {
 			return value + ': ' + doc.employee_name;
@@ -11,6 +13,7 @@ In case where a code and a name is maintained for an entity, (for example for Em
 			return value;
 		}
 	}
+```
 
 Notes:
 

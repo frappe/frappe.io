@@ -14,8 +14,11 @@ Install pre-requisites,
 
 Install bench as a *non root* user,
 
-		git clone https://github.com/frappe/bench bench-repo
-		sudo pip install -e bench-repo
+
+```
+	git clone https://github.com/frappe/bench bench-repo
+	sudo pip install -e bench-repo
+```
 
 Note: Please do not remove the bench directory the above commands will create
 
@@ -33,46 +36,56 @@ Basic Usage
 
 * Create a new bench
 
-	The init command will create a bench directory with frappe framework
-	installed. It will be setup for periodic backups and auto updates once
-	a day.
+The init command will create a bench directory with frappe framework
+installed. It will be setup for periodic backups and auto updates once
+a day.
 
-		bench init frappe-bench && cd frappe-bench
+```
+	bench init frappe-bench && cd frappe-bench
+```
 
 * Add apps
 
-	The get-app command gets and installs frappe apps. Examples:
-	
-	- [erpnext](https://github.com/frappe/erpnext)
-	- [erpnext_shopify](https://github.com/frappe/erpnext_shopify)
-	- [paypal_integration](https://github.com/frappe/paypal_integration)
-	
+The get-app command gets and installs frappe apps. Examples:
+
+- [erpnext](https://github.com/frappe/erpnext)
+- [erpnext_shopify](https://github.com/frappe/erpnext_shopify)
+- [paypal_integration](https://github.com/frappe/paypal_integration)
+
+```
 	bench get-app erpnext https://github.com/frappe/erpnext
+```
 
 * Add site
 
-	Frappe apps are run by frappe sites and you will have to create at least one
-	site. The new-site command allows you to do that.
+Frappe apps are run by frappe sites and you will have to create at least one
+site. The new-site command allows you to do that.
 
-		bench new-site site1.local
+```
+	bench new-site site1.local
+```
 
 * Start bench
 
-	To start using the bench, use the `bench start` command
+To start using the bench, use the `bench start` command
 
-		bench start
 
-	To login to Frappe / ERPNext, open your browser and go to `localhost:8000`
+```
+	bench start
+```
 
-	The default user name is "Administrator" and password is what you set when you created the new site.
+To login to Frappe / ERPNext, open your browser and go to `localhost:8000`
+
+The default user name is "Administrator" and password is what you set when you created the new site.
 
 
 Setting Up ERPNext
 ==================
 
 To install ERPNext, simply run:
+
 ```
-bench install-app erpnext
+	bench install-app erpnext
 ```
 
 You can now either use `bench start` or [setup the bench for production use](setup-production.html)

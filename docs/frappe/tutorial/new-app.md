@@ -4,6 +4,7 @@ Once the bench is installed, you will see two main folders, `apps` and `sites`. 
 
 To make a new application, go to your bench folder and run, `bench new-app {app_name}` and fill in details about the application. This will create a boilerplate application for you.
 
+```
 	$ bench new-app library_management
 	App Title (defaut: Lib Mgt): Library Management
 	App Description:  App for managing Articles, Members, Memberships and Transactions for Libraries
@@ -12,11 +13,13 @@ To make a new application, go to your bench folder and run, `bench new-app {app_
 	App Icon (default 'octicon octicon-file-directory'): octicon octicon-book
 	App Color (default 'grey'): #589494
 	App License (default 'MIT'): GNU General Public License
+```
 
 ### App Structure
 
 The application will be created in a folder called `library_management` and will have the following structure:
 
+```
 	.
 	├── MANIFEST.in
 	├── README.md
@@ -40,6 +43,7 @@ The application will be created in a folder called `library_management` and will
 	├── license.txt
 	├── requirements.txt
 	└── setup.py
+```
 
 1. `config` folder contains application configuration info
 1. `desktop.py` is where desktop icons can be added to the Desk

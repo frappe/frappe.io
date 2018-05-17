@@ -21,6 +21,8 @@ Optionally if you are developing for frappe you can add:
 
 ### Sample
 
+
+```
 	redis_cache: redis-server config/redis_cache.conf
 	redis_socketio: redis-server config/redis_socketio.conf
 	redis_queue: redis-server config/redis_queue.conf
@@ -31,3 +33,4 @@ Optionally if you are developing for frappe you can add:
 	worker_short: bench worker --queue short
 	worker_long: bench worker --queue long
 	worker_default: bench worker --queue default
+```

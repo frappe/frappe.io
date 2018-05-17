@@ -8,7 +8,7 @@ To create a new Query Report:
 
 ### 1. Create a new Report
 
-<img class="screenshot" alt="Query Report" src="{{docs_base_url}}/assets/img/query-report.png">
+<img class="screenshot" alt="Query Report" src="~@frappe_base/assets/img/query-report.png">
 
 1. Set type as "Query Report"
 1. Set the reference DocType - Users that have access to the reference DocType will have access to the report
@@ -20,6 +20,8 @@ To create a new Query Report:
 You can define complex queries such as:
 
 
+
+```
 	SELECT
 	  `tabWork Order`.name as "Work Order:Link/Work Order:200",
 	  `tabWork Order`.creation as "Date:Date:120",
@@ -32,12 +34,13 @@ You can define complex queries such as:
 	  `tabWork Order`.docstatus=1
 	  AND ifnull(`tabWork Order`.produced_qty,0) &lt; `tabWork Order`.qty
 	  AND EXISTS (SELECT name from `tabStock Entry` where work_order =`tabWork Order`.name)
+```
 
 1. To format the columns, set labels for each column in the format: [Label]:[Field Type]/[Options]:[Width]
 
 ### 3. Check the Report
 
-<img class="screenshot" alt="Query Report" src="{{docs_base_url}}/assets/img/query-report-out.png">
+<img class="screenshot" alt="Query Report" src="~@frappe_base/assets/img/query-report-out.png">
 
 ### 4. Advanced (adding filters)
 
@@ -45,7 +48,10 @@ If you are making a standard report, you can add filters in your query report ju
 
 For example
 
+
+```
 	SELECT ... FROM ... WHERE item_code = %(item_code)s ORDER BY ...
+```
 
 ---
 
