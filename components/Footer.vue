@@ -1,5 +1,5 @@
 <template>
-  <footer class="border-top bg-dark pt-4">
+  <footer class="bg-dark py-4">
     <div class="container">
       <div class="row mt-4">
         <div class='col-sm-12 col-md-6' style='display: flex; flex-direction: column; justify-content: space-between;'>

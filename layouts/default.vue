@@ -19,15 +19,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-
-$font-family-sans-serif: 'Lato', sans-serif;
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 980px
-);
-
+@import "../styles/variables";
 @import "bootstrap/scss/bootstrap.scss";
 </style>

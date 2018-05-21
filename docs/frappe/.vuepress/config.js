@@ -8,13 +8,11 @@ module.exports = {
     dest: outputPath,
     base: '/docs/frappe/',
     themeConfig: {
+        repo: 'frappe/frappe',
+        docsDir: 'frappe/docs',
+        editLinks: true,
         sidebar: [
-            {
-                title: 'Introduction',
-                children: [
-                    '/'
-                ]
-            },
+            ['/', 'Introduction'],
             {
                 title: 'Frappe Tutorial',
                 children: [
