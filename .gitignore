@@ -12,3 +12,5 @@ dist
 
 # docs
 static/docs
+docs/
+!docs/docs.styl

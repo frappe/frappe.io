@@ -1,0 +1,14 @@
+[
+    {
+        "name": "frappe",
+        "git": "https://github.com/netchampfaris/frappe",
+        "branch": "vuepress",
+        "folder": "frappe/docs"
+    },
+    {
+        "name": "datatable",
+        "git": "https://github.com/frappe/datatable",
+        "branch": "vuepress",
+        "folder": "vuepress"
+    }
+]

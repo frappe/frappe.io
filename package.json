@@ -26,6 +26,7 @@
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.5.0",
+    "ncp": "^2.0.0",
     "vuepress": "^0.8.4"
   }
 }
