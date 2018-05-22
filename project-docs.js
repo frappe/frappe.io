@@ -1,36 +1,66 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const ncp = require('ncp');
-const { exec } = require('child_process');
+const util = require('util');
+const ncp = util.promisify(require('ncp'));
+const exec = util.promisify(require('child_process').exec);
+const spawn = require('child_process').spawnSync;
 const projects = require('./projects.json');
 
-for (let project of projects) {
-    const dirPath = path.resolve('docs', project.name);
+const command = process.argv[2];
 
-    clearDir(dirPath);
-    ensureDir(dirPath);
+if (!command) {
+    pullDocs().then(() => buildDocs());
+}
 
-    const tmpDir = path.resolve(os.tmpdir(), project.name);
-    const outputDir = path.resolve('docs', project.name);
+if (command === '--build') {
+    buildDocs();
+}
 
-    exec(`git clone -b ${project.branch} ${project.git} ${tmpDir} --depth=1`, (err, stdout, stderr) => {
-        if (err) {
-            console.log('Error:', err);
-            return;
+if (command === '--pull') {
+    pullDocs();
+}
+
+function buildDocs() {
+    for (let project of projects) {
+        spawn('./node_modules/.bin/vuepress', ['build', `docs/${project.name}`], { stdio: 'inherit'});
+    }
+}
+
+function pullDocs() {
+    const promises = [];
+
+    for (let project of projects) {
+        const dirPath = path.resolve('docs', project.name);
+
+        clearDir(dirPath);
+        ensureDir(dirPath);
+
+        const tmpDir = path.resolve(os.tmpdir(), project.name);
+        const outputDir = path.resolve('docs', project.name);
+
+        let command = `git clone -b ${project.branch} ${project.git} ${tmpDir} --depth=1`;
+        if (fs.existsSync(tmpDir)) {
+            command = `cd ${tmpDir} && git pull`;
         }
 
-        const docsFolder = path.resolve(tmpDir, project.folder);
+        const promise =
+            // git clone / git pull
+            exec(command)
+            // copy from tmp folder to docs/
+            .then(() => {
+                const docsFolder = path.resolve(tmpDir, project.folder);
+                return ncp(docsFolder, outputDir);
+            })
+            .then(() => {
+                console.log('Copied docs for', project.name);
+            })
+            .catch(console.log);
 
-        ncp(docsFolder, outputDir, (err) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.log('Copied docs for', project.name);
-            clearDir(tmpDir);
-        });
-    });
+        promises.push(promise);
+    }
+
+    return Promise.all(promises);
 }
 
 function ensureDir(dirPath) {

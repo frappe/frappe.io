@@ -11,8 +11,9 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "build:docs": "vuepress build",
-    "dev:docs": "vuepress dev"
+    "pull:docs": "node project-docs --pull",
+    "build:docs": "node project-docs --build",
+    "generate:docs": "node project-docs"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
