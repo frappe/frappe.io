@@ -8,6 +8,10 @@
 # install dependencies
 $ npm install # Or yarn install
 
+# Build docs
+npm run pull:docs # Get project docs from git repo ...
+npm run build:docs # ... and generate static pages
+
 # serve with hot reload at localhost:3000
 $ npm run dev
 
